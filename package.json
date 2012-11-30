@@ -1,0 +1,21 @@
+{
+  "name": "mongoose-cache",
+  "version": "0.1.0",
+  "author": "Enno Boland <eb@s01.de>",
+  "description": "Caches Database querys the easy way.",
+  "main": "./index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gottox/mongoose-cache.git"
+  },
+  "keywords": [
+    "mongoose", "cache"
+  ],
+  "dependencies" : {
+    "lru-cache": "2.2.x"
+  },
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.6"
+  }
+}
