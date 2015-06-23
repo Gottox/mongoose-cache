@@ -1,6 +1,6 @@
 {
   "name": "mongoose-cache",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Enno Boland <eb@s01.de>",
   "description": "Caches Database querys the easy way.",
   "main": "./index",
