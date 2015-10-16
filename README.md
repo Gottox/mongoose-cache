@@ -29,3 +29,8 @@ db.User.find({ ... }).cache().exec(function() { ... })
 ```
 
 For more talky output add ```debug: true``` to the cacheOpts.
+
+For getting the lru cache object in order to have access to its API
+```javascript
+mongoose.getCache()
+```
