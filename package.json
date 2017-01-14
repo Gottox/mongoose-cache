@@ -12,7 +12,7 @@
     "mongoose", "cache"
   ],
   "dependencies" : {
-    "lru-cache": "2.2.x"
+    "lru-cache": "4.0.x"
   },
   "license": "MIT",
   "engine": {
