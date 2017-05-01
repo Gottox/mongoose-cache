@@ -28,4 +28,15 @@ For enabling this cache in your query just call .cache()
 db.User.find({ ... }).cache().exec(function() { ... })
 ```
 
+To invalidate the cache for a query, just call invalidateCache()
+```javascript
+db.User.find({ ... }).invalidateCache().exec(function() { ... })
+```
+This will clear the current query from the cache, other queries may remain
+in the cache, nevertheless. If you want to clear/reset the whole cache, run
+invalidateCache(true) on Query
+```javascript
+db.User.find({ ... }).invalidateCache(true).exec(function() { ... })
+```
+
 For more talky output add ```debug: true``` to the cacheOpts.
