@@ -1,31 +1,45 @@
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=Gottox&url=https://github.com/Gottox/mongoose-cache&title=mongoose-cache&language=&tags=github&category=software)
+# mongoose-cache #
 
+mongoose와 redis를 이용하여 캐시를 사용할 수 있습니다.
 
-### mongoose-cache
-
-Monkey patches Mongoose.Query to support in-memory caching.
-
-## usage
-
-Monkey-Patching mongoose:
+## Usage ##
 
 ```javascript
-var mongoose = require('./mongoose')
-var cacheOpts = {
-	max:50,
-	maxAge:1000*60*2
-};
-require('mongoose-cache').install(mongoose, cacheOpts)
+var mongoose = require('mongoose')
+var cachegoose = require('cachegoose')
+
+cachegoose(mongoose, {
+  engine: 'redis',
+  port: 6379,
+  host: 'localhost'
+})
+
+
+// 로컬 redis를 사용한다면 값을 넣지 않아도 됩니다.
+cachegoose(mongoose)
+
+Record
+  .find({ some_condition: true })
+  .cache(30) // 30초 동안 유지되는 캐시를 생성합니다. 값이 없거나 0이라면 파기 되지 않습니다.
+  .exec(function(err, records) {
+    ...
+  })
+
+
+Record
+  .find({ parentId: userId })
+  .cache(0, 'customKey') // 'customKey'라는 이름으로 된 캐시를 생성합니다.
+  .exec(function(err, records) {  // 'customKey도 같이 리턴됩니다.
+    ...
+  });
+
+
+// 아래 방법으로 캐시데이터를 임의로 삭제할 수 있습니다.
+cachegoose.clearCache('customKey')
 ```
 
-This means "cache up to 50 querys with a livetime of two minutes".
-See <https://github.com/isaacs/node-lru-cache#options> for all available
-options.
+## Refrence ##
+https://github.com/boblauer/cachegoose
 
-For enabling this cache in your query just call .cache()
-
-```javascript
-db.User.find({ ... }).cache().exec(function() { ... })
-```
-
-For more talky output add ```debug: true``` to the cacheOpts.
+## Test ##
+npm test

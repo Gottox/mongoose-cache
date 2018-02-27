@@ -1,0 +1,12 @@
+package-lock.json
+npm-debug.log
+.DS_Store
+lambda-invoke-response.json
+packaged-sam.yaml
+node_modules/
+.vscode/
+public/
+config-dev.json
+log.txt
+out/
+*.swp
