@@ -1,1 +1,1 @@
-module.exports = require('./lib/cache.js');
+module.exports = require('./lib');
