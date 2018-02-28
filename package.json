@@ -1,6 +1,6 @@
 {
-  "name": "mongoose-cache",
-  "version": "0.0.1",
+  "name": "@nurigo/mongoose-cache",
+  "version": "0.0.3",
   "author": "hosy <hosy@nurigo.net>",
   "description": "redis를 이용한 mongoose cache",
   "main": "./index",

@@ -6,9 +6,9 @@ mongoose와 redis를 이용하여 캐시를 사용할 수 있습니다.
 
 ```javascript
 var mongoose = require('mongoose')
-var cachegoose = require('cachegoose')
+var mongooseCache = require('@nurigo/mongoose-cache')
 
-cachegoose(mongoose, {
+mongooseCache(mongoose, {
   engine: 'redis',
   port: 6379,
   host: 'localhost'
@@ -16,7 +16,7 @@ cachegoose(mongoose, {
 
 
 // 로컬 redis를 사용한다면 값을 넣지 않아도 됩니다.
-cachegoose(mongoose)
+mongooseCache(mongoose)
 
 Record
   .find({ some_condition: true })
@@ -35,7 +35,7 @@ Record
 
 
 // 아래 방법으로 캐시데이터를 임의로 삭제할 수 있습니다.
-cachegoose.clearCache('customKey')
+mongooseCache.clearCache('customKey')
 ```
 
 ## Refrence ##
